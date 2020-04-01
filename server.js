@@ -51,8 +51,8 @@ app.post('/', async function (req, res) {
 
 
 
-app.listen(process.env.port || 3000, function () {
-    console.log('Example app listening on port 3000!')
+app.listen(process.env.port || 8080, function () {
+    console.log('app listening on port 8080!')
 });
 
 // A helper function used to read a Node.js readable stream into a string
@@ -68,3 +68,4 @@ async function streamToString(readableStream) {
         readableStream.on("error", reject);
     });
 }
+
