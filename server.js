@@ -30,6 +30,11 @@ app.get('/ping', (req, res) => {
 });
 
 app.get('/:id', async function (req, res) {
+
+    if (/robot/.test(req.params.id) || !/^jspad/.test(req.params.id)) {
+        res.send("ok");
+    }
+
     const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
     const containerClient = await blobServiceClient.getContainerClient(containerName);
     const blockBlobClient = containerClient.getBlockBlobClient(req.params.id);
