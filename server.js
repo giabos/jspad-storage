@@ -54,6 +54,16 @@ app.post('/', async function (req, res) {
     res.json({ success: true, id: blobName })
 });
 
+app.put('/:id', async function (req, res) {
+    const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
+    const containerClient = await blobServiceClient.getContainerClient(containerName);
+    const blockBlobClient = containerClient.getBlockBlobClient(req.params.id);
+    const data = req.body;
+    const uploadBlobResponse = await blockBlobClient.upload(data, data.length);
+
+    res.json({ success: true })
+});
+
 
 
 app.listen(process.env.port || 8080, function () {
