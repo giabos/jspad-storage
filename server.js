@@ -25,6 +25,10 @@ app.use(function (req, res, next) {
 });
 
 
+app.get('/ping', (req, res) => {
+    res.send("pong");
+});
+
 app.get('/:id', async function (req, res) {
     const blobServiceClient = await BlobServiceClient.fromConnectionString(AZURE_STORAGE_CONNECTION_STRING);
     const containerClient = await blobServiceClient.getContainerClient(containerName);
