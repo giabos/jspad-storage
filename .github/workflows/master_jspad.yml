@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'jspad'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_fcca0055650e4fc9b483d9c1e5de8cc7 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_292859019f37425da0b8c81ba232408d }}
         package: .
