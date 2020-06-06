@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@master
@@ -18,7 +18,7 @@ jobs:
     - name: Set up Node.js version
       uses: actions/setup-node@v1
       with:
-        node-version: '12.x'
+        node-version: '12.13.0'
 
     - name: npm install, build, and test
       run: |
@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'jspad'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_292859019f37425da0b8c81ba232408d }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_428c17f680f14a13a2466995e32c2320 }}
         package: .
