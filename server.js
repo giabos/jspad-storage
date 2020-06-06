@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
 
 
 app.get('/ping', (req, res) => {
-    res.send("pong");
+    res.send("pong!");
 });
 
 app.get('/:id', async function (req, res) {
